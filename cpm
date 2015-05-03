@@ -1,0 +1,71 @@
+#!/bin/bash
+
+if [ "$1" = "new_package" ]
+then
+    echo "$2" >> .packages;
+    mkdir $2;
+    cd $2;
+        mkdir h;
+        cd h;
+            mkdir $2;
+        cd ..;
+        mkdir src;
+        mkdir o;
+    cd ..;
+elif [ "$1" = "new_module" ]
+then
+    cd $2;
+        cd h;
+            cd $2;
+                echo "#ifndef "$3"_H_" >> $3.h;
+                echo "#define "$3"_H_" >> $3.h;
+                echo "" >> $3.h;
+                echo "#endif" >> $3.h;
+            cd ..; 
+        cd ..;
+        cd src;
+            echo "#include \"\"" >> $3.c
+        cd ..;
+        
+    cd ..;
+elif [ "$1" = "edit_module" ]
+then
+    vim -O ./$2/h/$2/$3.h ./$2/src/$3.c;
+    cpm build_module $2 $3;
+elif [ "$1" = "build_module" ]
+then
+    gcc -std=c99 `cpm h` -o ./$2/o/$3.o -c ./$2/src/$3.c;
+elif [ "$1" = "build_as_so" ]
+then
+    echo echo;
+elif [ "$1" = "h" ]
+then
+    while read line
+    do
+        export h="$h -I./$line/h/";
+    done < .packages
+    echo $h;
+elif [ "$1" = "o" ]
+then
+    while read line
+    do
+        export h="$h ./$line/o/*";
+    done < .packages
+    echo $h;
+elif [ "$1" = "run" ]
+then
+    gcc `cpm h` -o program `cpm o`;
+    ./program;
+elif [ "$1" = "all_pack" ]
+then
+    while read line
+    do
+        echo $line;
+    done < .packages
+elif [ "$1" = "remove_module" ]
+then
+    rm ./$2/h/$2/$3.h; 
+    rm ./$2/src/$3.c;
+else
+    echo 'else';
+fi
