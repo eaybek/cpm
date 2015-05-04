@@ -1,6 +1,10 @@
 # cpm
 basic package manager for C projects
 
+##IMPORTANT
+There is no error handling in this code it's designed for my personal need's so there is no warranty about anything 
+
+
 ### cpm new_package packagename
 
 ### cpm new_module packagename modulename
