@@ -24,7 +24,7 @@ then
             cd ..; 
         cd ..;
         cd src;
-            echo "#include \"\"" >> $3.c
+            echo "#include \"$2/$3.h\"" >> $3.c
         cd ..;
         
     cd ..;
