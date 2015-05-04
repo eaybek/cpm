@@ -5,6 +5,20 @@ basic package manager for C projects
 There is no error handling in this code it's designed for my personal need's so there is no warranty about anything 
 
 
+
+use cpm for create below filetree
+C/
+  packagename/
+    h/
+      packagename/             *this folder using like namespace when include some headerfile* 
+        module.h                ``#include "packagename/module.h"``
+    c/
+      module.c
+    o/
+      module.o
+  program
+  
+
 ### cpm new_package packagename
 
 ### cpm new_module packagename modulename
