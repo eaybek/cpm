@@ -7,20 +7,21 @@ There is no error handling in this code it's designed for my personal need's so 
 
 
 use cpm for create below filetree
-C/
-  packagename/
-    h/
-      packagename/             *this folder using like namespace when include some headerfile* 
-        module.h                ``#include "packagename/module.h"``
-    c/
-      module.c
-    o/
-      module.o
-  program
+
+
+    C/
+      packagename/
+        h/
+          packagename/             *this folder using like namespace when include some headerfile* 
+            module.h                ``#include "packagename/module.h"``
+        c/
+          module.c
+        o/
+          module.o
+      program
   
 
 ### cpm new_package packagename
-
 ### cpm new_module packagename modulename
 
 ### cpm edit_module packagename modulename
