@@ -9,7 +9,7 @@ There is no error handling in this code it's designed for my personal need's so 
 use cpm for create below filetree
 
 
-    C/
+    project/
       packagename/
         h/
           packagename/             *this folder using like namespace when include some headerfile* 
