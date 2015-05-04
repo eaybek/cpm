@@ -13,11 +13,11 @@ use cpm for create below filetree
       packagename/
         h/
           packagename/              this folder using like namespace when include some headerfile 
-            module.h                #include "packagename/module.h"
+            modulename.h                #include "packagename/module.h"
         c/
-          module.c
+          modulename.c
         o/
-          module.o
+          modulename.o
       program
   
 
