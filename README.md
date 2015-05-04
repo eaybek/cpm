@@ -12,8 +12,8 @@ use cpm for create below filetree
     project/
       packagename/
         h/
-          packagename/             *this folder using like namespace when include some headerfile* 
-            module.h                ``#include "packagename/module.h"``
+          packagename/              this folder using like namespace when include some headerfile 
+            module.h                #include "packagename/module.h"
         c/
           module.c
         o/
