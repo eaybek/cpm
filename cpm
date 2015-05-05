@@ -66,6 +66,18 @@ elif [ "$1" = "remove_module" ]
 then
     rm ./$2/h/$2/$3.h; 
     rm ./$2/src/$3.c;
+elif [ "$1" = "help" ]
+then
+    echo "new_package";
+    echo "new_module";
+    echo "edit_module";
+    echo "build_module";
+    echo "h";
+    echo "o";
+    echo "run";
+    echo "all_pack";
+    echo "remove_module";
+    echo "help";
 else
-    echo 'else';
+    echo 'cpm help';
 fi
