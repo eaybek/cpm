@@ -24,7 +24,7 @@ use cpm for create below filetree
 ### cpm new_package packagename
 ### cpm new_module packagename modulename
 
-### cpm edit_module packagename modulename
+### cpm edit packagename modulename
 
 ### cpm h
   show all header folders with -I prefix
