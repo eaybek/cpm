@@ -17,8 +17,8 @@ then
     cd $2;
         cd h;
             cd $2;
-                echo "#ifndef "$3"_H_" >> $3.h;
-                echo "#define "$3"_H_" >> $3.h;
+                echo "#ifndef "$2_$3"_H_" >> $3.h;
+                echo "#define "$2_$3"_H_" >> $3.h;
                 echo "" >> $3.h;
                 echo "#endif" >> $3.h;
             cd ..; 
@@ -28,7 +28,7 @@ then
         cd ..;
         
     cd ..;
-elif [ "$1" = "edit_module" ]
+elif [ "$1" = "edit" ]
 then
     vim -O ./$2/h/$2/$3.h ./$2/src/$3.c;
     cpm build_module $2 $3;
@@ -56,11 +56,18 @@ elif [ "$1" = "run" ]
 then
     gcc `cpm h` -o program `cpm o`;
     ./program;
-elif [ "$1" = "all_pack" ]
+elif [ "$1" = "show" ]
 then
     while read line
     do
         echo $line;
+        for f in $line/h/$line/*
+        do
+            export f=$(basename $f);
+            export f=${f%.*};
+            echo "    $f";
+        done
+        echo "";
     done < .packages
 elif [ "$1" = "remove_module" ]
 then
@@ -70,12 +77,12 @@ elif [ "$1" = "help" ]
 then
     echo "new_package";
     echo "new_module";
-    echo "edit_module";
+    echo "edit";
     echo "build_module";
     echo "h";
     echo "o";
     echo "run";
-    echo "all_pack";
+    echo "show";
     echo "remove_module";
     echo "help";
 else
